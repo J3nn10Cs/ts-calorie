@@ -3,37 +3,45 @@ import soccer from '/svg/soccer.svg'
 import difwrence from '/svg/diference.svg'
 import { Activity } from '../types'
 import { useMemo } from 'react'
+import CaloriesContent from './CaloriesContent'
 
 type CalorieProps = {
   activities: Activity[]
 }
 export default function ActivitiesForm({activities} : CalorieProps) {
 
+  // contador de caloria
   const caloriesConsumend = useMemo(() => activities.reduce((total,activity) => activity.category === 1 ? total + activity.calorie : total, 0) ,[activities])
 
+  //contador de ejercicios
   const caloriesBurned =  useMemo(() => activities.reduce((total,activity) => activity.category === 2 ? total + activity.calorie : total, 0),[activities])
+
+  //diferencia
+  const diferenceTotal = useMemo(() => caloriesConsumend - caloriesBurned ,[activities])
   return (
     <>
-      <div className="xl:grid xl:grid-cols-2 gap-2">
-        <div className="bg-black bg-opacity-20 rounded-3xl">
-          <img className='mx-auto mb-5 p-2' src={fire} alt="fire.jpg"/>
-          <p className='font-black ml-16 text-3xl'>{caloriesConsumend}</p>
-          <p className='ml-16 text-2xl mt-5'>Calories</p>
-        </div>
+      <div className="md:grid md:grid-cols-2 md:gap-2 md:m-0">
 
-        <div className="bg-black bg-opacity-20 rounded-3xl">
-          <img className='mx-auto mb-5 p-2' src={soccer} alt="fire.jpg"/>
-          <p className='font-black ml-16 text-3xl'>{caloriesBurned}</p>
-          <p className='ml-16 text-2xl mt-5'>Exercise</p>
-        </div>
+        <CaloriesContent
+          calories={caloriesConsumend}
+          text='Calories'
+          img={fire}
+        />
+        <CaloriesContent
+          calories={caloriesBurned}
+          text='Exercises'
+          img={soccer}
+        />
 
       </div>
 
-      <div className="grid xl:grid-cols-2 gap-2">
-        <div className="col-span-2 mx-36 bg-black bg-opacity-20 rounded-3xl">
+      <div className="md:grid md:grid-cols-2 md:gap-2 m-3 xl:m-0">
+        <div className="md:col-span-2 md:mx-36 p-2 xl:p-0 bg-black bg-opacity-20 rounded-3xl">
         <img className='mx-auto mb-5 p-2' src={difwrence} alt="fire.jpg"/>
-          <p className='font-black ml-16 text-3xl'>450</p>
-          <p className='ml-16 text-2xl mt-5'>Diference</p>
+          <div className='flex justify-center items-center p-1 xl:block'>
+            <p className='font-black xl:ml-16 text-3xl'>{diferenceTotal}</p>
+            <p className='ml-16 text-2xl xl:mt-5'>Diference</p>
+          </div>
         </div>
 
       </div>

@@ -69,7 +69,7 @@ export default function Form({dispatch, state} : FormProps ) {
   return (
     <>
       <form 
-      className="row-span-2 bg-black bg-opacity-20 p-4 xl:p-14 xl:w-full h-full mx-auto rounded-3xl"
+      className="sm:row-span-2 bg-black bg-opacity-20 p-4 sm:p-14 max-w-2xl sm:w-full sm:h-full sm:mx-auto rounded-3xl sm:mb-4"
       onSubmit={handleSubmit}
       >
         <div className="p-5">
