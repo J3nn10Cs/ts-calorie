@@ -69,20 +69,20 @@ export default function Form({dispatch, state} : FormProps ) {
   return (
     <>
       <form 
-      className="sm:row-span-2 bg-black bg-opacity-20 p-4 sm:p-14 max-w-2xl sm:w-full sm:h-full sm:mx-auto rounded-3xl sm:mb-4"
+      className="sm:row-span-2 bg-black bg-opacity-20 p-4 sm:p-14 max-w-2xl sm:w-full sm:h-full sm:mx-auto rounded-3xl sm:mb-4 dark:bg-neutral-900 "
       onSubmit={handleSubmit}
       >
         <div className="p-5">
           <label 
             htmlFor="category"
-            className="font-black text-xl"
+            className="font-black text-xl dark:text-white"
           >
             Categories
           </label>
           <select 
             name="category" 
             id="category"
-            className="w-full border rounded-lg p-3 mt-2"
+            className="w-full border rounded-lg p-3 mt-2 "
             value={activity.category}
             onChange={ handleChange}
           >
@@ -101,7 +101,7 @@ export default function Form({dispatch, state} : FormProps ) {
         <div className="p-5">
           <label 
             htmlFor="name_activity"
-            className="font-black text-xl"
+            className="font-black text-xl dark:text-white"
           >
             Activity
           </label>
@@ -119,7 +119,7 @@ export default function Form({dispatch, state} : FormProps ) {
         <div className="p-5">
           <label 
             htmlFor="calorie"
-            className="font-black text-xl"
+            className="font-black text-xl dark:text-white"
           >
             Calories
           </label>
@@ -136,7 +136,7 @@ export default function Form({dispatch, state} : FormProps ) {
 
         <button 
           type="submit"
-          className="bg-slate-900 hover:bg-slate-800   text-white rounded-lg text-center mt-2 py-3 w-full font-bold disabled:opacity-10"
+          className="bg-slate-900 hover:bg-slate-800   text-white rounded-lg text-center mt-2 py-3 w-full font-bold disabled:opacity-10 dark:bg-neutral-700"
           disabled={!validActivity()}
         >
           {activity.category === 1 ? 'Save food' : 'Save exercise'}

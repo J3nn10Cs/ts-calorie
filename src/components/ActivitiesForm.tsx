@@ -36,11 +36,11 @@ export default function ActivitiesForm({activities} : CalorieProps) {
       </div>
 
       <div className="md:grid md:grid-cols-2 md:gap-2 m-3 xl:m-0">
-        <div className="md:col-span-2 md:mx-36 p-2 xl:p-0 bg-black bg-opacity-20 rounded-3xl">
+        <div className="md:col-span-2 md:mx-36 p-2 xl:p-0 bg-black bg-opacity-20 dark:bg-neutral-900 rounded-3xl">
         <img className='mx-auto mb-5 p-2' src={difwrence} alt="fire.jpg"/>
           <div className='flex justify-center items-center p-1 xl:block'>
-            <p className='font-black xl:ml-16 text-3xl'>{diferenceTotal}</p>
-            <p className='ml-16 text-2xl xl:mt-5'>Diference</p>
+            <p className='font-black xl:ml-16 text-3xl dark:text-white'>{diferenceTotal}</p>
+            <p className='ml-16 text-2xl xl:mt-5 dark:text-white'>Diference</p>
           </div>
         </div>
 
