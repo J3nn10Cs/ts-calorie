@@ -1,23 +1,13 @@
 import fire from '/svg/fire.svg'
 import soccer from '/svg/soccer.svg'
 import difwrence from '/svg/diference.svg'
-import { Activity } from '../types'
-import { useMemo } from 'react'
 import CaloriesContent from './CaloriesContent'
+import { useActivity } from '../hooks/useActivity'
 
-type CalorieProps = {
-  activities: Activity[]
-}
-export default function ActivitiesForm({activities} : CalorieProps) {
+export default function ActivitiesForm() {
 
-  // contador de caloria
-  const caloriesConsumend = useMemo(() => activities.reduce((total,activity) => activity.category === 1 ? total + activity.calorie : total, 0) ,[activities])
+  const {caloriesBurned,caloriesConsumend,diferenceTotal} = useActivity()
 
-  //contador de ejercicios
-  const caloriesBurned =  useMemo(() => activities.reduce((total,activity) => activity.category === 2 ? total + activity.calorie : total, 0),[activities])
-
-  //diferencia
-  const diferenceTotal = useMemo(() => caloriesConsumend - caloriesBurned ,[activities])
   return (
     <>
       <div className="md:grid md:grid-cols-2 md:gap-2 md:m-0">
